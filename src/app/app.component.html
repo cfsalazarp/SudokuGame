@@ -1,0 +1,16 @@
+<div class="layout-container">
+  <h1>Sudoku 数独</h1>
+  <div class="sd-actions">
+    <div class="sd-difficulty">
+      <span className="text-xl">
+        {{selectedDifficulty === "easy" ? "💫" : selectedDifficulty === "medium"
+        ? "🌟" : "⚡"}}
+      </span>
+      <span className="capitalize font-medium text-purple-100">
+        {{selectedDifficulty}} Mode
+      </span>
+    </div>
+    <button>Cambiar Dificultad</button>
+  </div>
+  <app-sudoku-board></app-sudoku-board>
+</div>

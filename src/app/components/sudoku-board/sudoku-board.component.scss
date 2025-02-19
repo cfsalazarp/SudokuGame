@@ -1,0 +1,16 @@
+.sudoku-board {
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+  width: 360px;
+  height: 360px;
+  gap: 2px;
+  background-color: var(--color-board);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  .sudoku-row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+  }
+}

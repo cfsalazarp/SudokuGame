@@ -1,0 +1,27 @@
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-cell);
+    transition: var(--transition);
+  }
+  
+  .sudoku-cell:focus {
+    outline: none;
+    background-color: var(--color-selected);
+  }
+  
+  .sudoku-cell.fixed {
+    background-color: var(--color-fixed-cell);
+    font-weight: bold;
+  }
+  
+  .sudoku-cell.correct {
+    color: var(--color-correct);
+  }
+  
+  .sudoku-cell.error {
+    color: var(--color-error);
+  }
