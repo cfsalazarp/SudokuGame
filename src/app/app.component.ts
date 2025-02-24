@@ -2,8 +2,6 @@ import { CommonModule } from "@angular/common";
 import { Component, effect, signal } from "@angular/core";
 import { SudokuBoardComponent } from "./components/sudoku-board/sudoku-board.component";
 import { SudokuApiService } from "./core/services/sudoku-api.service";
-import { SudokuSolver } from "@jlguenego/sudoku-generator";
-import { generate } from "rxjs";
 import { Sudoku } from "./core/models/sudoku.model";
 import { CompletionModalComponent } from "./components/completion-modal/completion-modal.component";
 
