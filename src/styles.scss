@@ -1,16 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@font-face {
+  font-family: 'Ungai';
+  src: url('../src/assets/Ungai.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Shuriken';
+  src: url('../src/assets/The\ Last\ Shuriken.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
     /* Light Theme */
-    --color-bg: #B0C4DE;
+    --color-bg: #F7EFD9;
     --color-board: #FFFFFF;
-    --color-cell: #E3E6E8;
+    --color-cell: #2d9ae2;
     --color-fixed-cell: #F7F7F7;
     --color-selected: #FFEB3B;
     --color-correct: #2E7D32;
     --color-error: #D32F2F;
-    --color-text: #333;
+    --color-text: #264697;
     --color-primary: #1976D2;
     --color-secondary: #757575;
   
@@ -27,14 +40,15 @@
     --dark-secondary: #999;
   
     /* General */
-    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Ungai', sans-serif;
     --font-size: 16px;
     --border-radius: 8px;
     --spacing: 10px;
     --transition: all 0.3s ease-in-out;
   }
+  
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Shuriken', sans-serif;
     background-color: var(--color-bg);
     height: 100%;
     margin: 0px;

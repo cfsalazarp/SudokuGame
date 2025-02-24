@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SudokuResponse } from '../models/sudokuResponse.model';
+import { SudokuResponse } from '../models/sudoku.model';
 import { Observable } from 'rxjs/internal/Observable';
-import { map, tap } from 'rxjs';
 
 const API_URL = "https://sudoku-game-and-api.netlify.app/api/sudoku";
 const PROXY_URL = "https://api.allorigins.win/raw?url=";

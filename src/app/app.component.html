@@ -1,16 +1,11 @@
-<div class="layout-container">
-  <h1>Sudoku 数独</h1>
-  <div class="sd-actions">
-    <div class="sd-difficulty">
-      <span className="text-xl">
-        {{selectedDifficulty === "easy" ? "💫" : selectedDifficulty === "medium"
-        ? "🌟" : "⚡"}}
-      </span>
-      <span className="capitalize font-medium text-purple-100">
-        {{selectedDifficulty}} Mode
-      </span>
+<main class="layout-container">
+  <h1 class="layout-container__title">Sudoku 数独</h1>
+  <app-completion-modal></app-completion-modal>
+  <div class="difficulty">
+    <div class="difficulty__title">
+        {{difficulty}} Mode
     </div>
-    <button>Cambiar Dificultad</button>
+    <button class="difficulty__button">Cambiar Dificultad</button>
   </div>
-  <app-sudoku-board></app-sudoku-board>
-</div>
+  <app-sudoku-board *ngIf="sudoku" [sudoku]="sudoku" [finishedGame]="finishedGame"></app-sudoku-board>
+</main>

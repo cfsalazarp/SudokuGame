@@ -1,0 +1,16 @@
+<ng-container *ngFor="let row of sudoku(); index as rowIndex">
+    <div
+      class="sudoku-cell"
+      *ngFor="let field of row; index as colIndex"
+      [class.top]="rowIndex % 3 === 0"
+      [class.bottom]="rowIndex % 3 === 2"
+      [class.left]="colIndex % 3 === 0"
+      [class.right]="colIndex % 3 === 2"
+      [class.readonly]="field.readonly"
+      [class.active]="field === activeField()"
+      (click)="onFieldClick(field)"
+    >
+      <div class="value">{{ field.value }}</div>
+    </div>
+  </ng-container>
+  
