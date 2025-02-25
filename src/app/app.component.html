@@ -1,11 +1,11 @@
 <main class="layout-container">
   <h1 class="layout-container__title">Sudoku 数独</h1>
-  <app-completion-modal></app-completion-modal>
   <div class="difficulty">
     <div class="difficulty__title">
         {{difficulty}} Mode
     </div>
-    <button class="difficulty__button">Cambiar Dificultad</button>
+    <!-- <button class="difficulty__button">Cambiar Dificultad</button> -->
   </div>
+  <!-- <app-completion-modal></app-completion-modal> -->
   <app-sudoku-board *ngIf="sudoku" [sudoku]="sudoku" [finishedGame]="finishedGame"></app-sudoku-board>
 </main>

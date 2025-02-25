@@ -1,3 +1,4 @@
+@let data = this.activeField();
 <ng-container *ngFor="let row of sudoku(); index as rowIndex">
     <div
       class="sudoku-cell"
@@ -7,10 +8,18 @@
       [class.left]="colIndex % 3 === 0"
       [class.right]="colIndex % 3 === 2"
       [class.readonly]="field.readonly"
-      [class.active]="field === activeField()"
-      (click)="onFieldClick(field)"
-    >
+      [class.highlight-row]="rowIndex == currentRow"
+      [class.highlight-col]="colIndex == currentCol"
+      [class.highlight-same]="data?.value && data.value == field?.value"
+      [class.active]="field === data"
+      (click)="onFieldClick(field)" 
+      >
       <div class="value">{{ field.value }}</div>
+      <ng-container *ngIf="!field.value && field.notes && field.notes.length > 0">
+        <div class="note note-{{ note }}" *ngFor="let note of field.notes">
+          <div>{{ note }}</div>
+        </div>
+      </ng-container>
     </div>
   </ng-container>
   
