@@ -14,20 +14,16 @@ export type Difficulty = "easy" | "medium" | "hard";
 })
 export class AppComponent {
   title = "Sudoku 数独";
-  difficulty: Difficulty = "easy";
+  difficulty: Difficulty = "hard";
   sudoku!: Sudoku;
   finishedGame = signal(false);
 
   constructor(
-    private sudokuApiService: SudokuApiService,
-    private completionModal: CompletionModalComponent
+    private sudokuApiService: SudokuApiService
   ) {
 
     effect(() => {
       console.log("Se acabó el juego", this.finishedGame());
-      console.log(this.completionModal.show);
-      this.completionModal.toogleModal();
-      console.log(this.completionModal.show);
     });
   }
 

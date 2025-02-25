@@ -99,11 +99,18 @@ export class SudokuBoardComponent implements OnChanges {
   }
 
   currentCol(): number {
+    if (!this.activeField || this.currentRow() === -1) {
+      return -1;
+    }
     console.log("CurrentCol", this.sudoku()[this.currentRow()].indexOf(this.activeField()));
     return this.sudoku()[this.currentRow()].indexOf(this.activeField());
   }
 
   moveFocus(row: number, col: number){
+    if (!this.activeField) {
+      return;
+    }
+
     let newRow = between (this.currentRow() + row, 0, 8);
     let newCol = between (this.currentCol() + col, 0, 8);
     this.activeField.set(this.sudoku()[newRow][newCol]);

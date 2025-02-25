@@ -14,6 +14,18 @@ export class SudokuGridComponent {
 
   onFieldClick(field: SudokuField): void {
     console.log("field selected in Child: ",field);
-    this.activeField.set(field);
+    this.activeField.set(this.activeField() !== field ? field : {answer: -1});
+  }
+
+  get currentRow(): number {
+    return this.sudoku().findIndex(row => row.indexOf(this.activeField()) !== -1);
+  }
+
+  get currentCol(): number {
+    if (!this.activeField || this.currentRow === -1) {
+      return -1;
+    }
+
+    return this.sudoku()[this.currentRow].indexOf(this.activeField());
   }
 }
