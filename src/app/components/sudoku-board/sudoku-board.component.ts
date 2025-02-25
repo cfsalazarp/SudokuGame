@@ -10,7 +10,7 @@ import {
   effect,
   WritableSignal
 } from "@angular/core";
-import { Sudoku, SudokuField } from "../../core/models/sudoku.model"; // Adjust the path as necessary
+import { Sudoku, SudokuField, NumberButton } from "../../core/models/sudoku.model"; // Adjust the path as necessary
 import { CommonModule } from "@angular/common";
 import { SudokuGridComponent } from "../sudoku-grid/sudoku-grid.component";
 
@@ -37,6 +37,18 @@ export class SudokuBoardComponent implements OnChanges {
 
   draftMode = signal(false);
   activeField= signal<SudokuField>({answer: 0});
+
+  numberButtons: NumberButton[] = [
+    {number: 1},
+    {number: 2},
+    {number: 3},
+    {number: 4},
+    {number: 5},
+    {number: 6},
+    {number: 7},
+    {number: 8},
+    {number: 9}
+  ];
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("changes: ", changes["sudoku"]);

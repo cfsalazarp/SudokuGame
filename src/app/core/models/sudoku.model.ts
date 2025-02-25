@@ -13,3 +13,8 @@ export interface SudokuResponse {
     medium: string[][];
     hard: string[][];
 }
+
+export interface NumberButton {
+    number: number;
+    disabled?: boolean;
+  }

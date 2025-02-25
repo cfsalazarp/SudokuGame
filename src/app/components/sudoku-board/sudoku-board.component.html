@@ -1,1 +1,17 @@
-<app-sudoku-grid [sudoku]="sudoku()" [activeField]="activeField"></app-sudoku-grid>
+<app-sudoku-grid
+  [sudoku]="sudoku()"
+  [activeField]="activeField"
+></app-sudoku-grid>
+<div class="options">
+  <button class="options__erase" (click)="erase()">Borrar</button>
+  <button class="options__notes">Notas</button>
+  <!-- Hint button -->
+</div>
+<div class="numbers">
+  <button
+    *ngFor="let button of numberButtons"
+    (click)="insertNumber(button.number)"
+  >
+    {{ button.number }}
+  </button>
+</div>
