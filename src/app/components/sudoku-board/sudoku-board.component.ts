@@ -29,13 +29,12 @@ export class SudokuBoardComponent implements OnChanges {
   @Input() finishedGame!: WritableSignal<boolean>;
 
   constructor() {
-
     effect(() => {
       console.log("activeField desde el parent: ", this.activeField());
     });
   }
 
-  draftMode = signal(false);
+  notesMode = signal(false);
   activeField= signal<SudokuField>({answer: 0});
 
   numberButtons: NumberButton[] = [
@@ -55,28 +54,33 @@ export class SudokuBoardComponent implements OnChanges {
   }
 
   @HostListener("window:keydown.backspace")
-  onBackspace(event: KeyboardEvent) {
+  onBackspace() {
     this.erase();
   }
 
   @HostListener("window:keydown.arrowUp")
-  onArrowUp(event: KeyboardEvent) {
+  onArrowUp() {
     this.moveFocus(-1,0);
   }
 
   @HostListener("window:keydown.arrowDown")
-  onArrowDown(event: KeyboardEvent) {
+  onArrowDown() {
     this.moveFocus(1,0);
   }
 
   @HostListener("window:keydown.arrowLeft")
-  onArrowLeft(event: KeyboardEvent) {
+  onArrowLeft() {
     this.moveFocus(0,-1);
   }
 
   @HostListener("window:keydown.arrowRight")
-  onArrowRight(event: KeyboardEvent) {
+  onArrowRight() {
     this.moveFocus(0,1);
+  }
+
+  @HostListener("window:keydown.space")
+  onSpace() {
+    this.notesMode.set(!this.notesMode());
   }
 
   @HostListener("window:keydown", ["$event"])
@@ -86,15 +90,32 @@ export class SudokuBoardComponent implements OnChanges {
       return;
     }
     this.insertNumber(number);
-    this.checkFinished();
   }
 
   insertNumber(number: number) {
-    console.log("activeField: ", this.activeField());
-    console.log("insertando el: ", number);
-    if (this.activeField() && !this.activeField().readonly) {
-      this.activeField().value = number;
-      console.log("this.activeField",this.activeField());
+    const field = this.activeField();
+    console.log("insertNumber:", number);
+    console.log(this.notesMode());
+    
+    
+    if (this.notesMode() && !field.value) {
+      console.log("this.notesMode() && !field.value");
+      if (!field.notes) {
+        console.log("!field.notes");
+        field.notes = [];
+      } else if (!field.notes?.find(data => data === number)) {
+        console.log("!field.notes?.find(data => data === number)");
+        field.notes?.push(number);
+      }else {
+        console.log("else");
+        field.notes = field.notes?.filter(data => data !== number);
+      }
+    } else if(!this.notesMode() && !field.readonly){
+      console.log("!this.notesMode && !field.readonly");
+      field.value = number;
+
+      this.cleanNotes();
+      this.checkFinished();
     }
   }
 
@@ -103,6 +124,10 @@ export class SudokuBoardComponent implements OnChanges {
       this.activeField().value = undefined;
       this.activeField().notes = [];         
     }
+  }
+
+  cleanNotes(){
+    this.activeField().notes = [];
   }
 
   currentRow(): number {
@@ -140,7 +165,6 @@ export class SudokuBoardComponent implements OnChanges {
   finished(): boolean{
     //return this.sudoku().every(row => row.every(col => col.value == col.answer));
     console.log("finishedFunc");
-    
     return true;
   }
 }

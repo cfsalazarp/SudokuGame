@@ -4,7 +4,7 @@
 ></app-sudoku-grid>
 <div class="options">
   <button class="options__erase" (click)="erase()">Borrar</button>
-  <button class="options__notes">Notas</button>
+  <button class="options__notes" (click)="this.notesMode.set(!this.notesMode())">Notas {{notesMode()}}</button>
   <!-- Hint button -->
 </div>
 <div class="numbers">
