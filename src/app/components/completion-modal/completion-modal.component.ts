@@ -13,6 +13,8 @@ export class CompletionModalComponent {
   show = true;
 
   toogleModal(){
+    console.log("toogleModal", this.show);
+    
     this.show = !this.show;
   }
 }

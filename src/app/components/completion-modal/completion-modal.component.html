@@ -1,3 +1,13 @@
-<div *ngIf="show">
-    <p >completion-modal works!</p>
+<div *ngIf="this.show" class="completionModal">
+    <div class="completionModal__title">
+        Felicitaciones!
+    </div>
+    <div class="completionModal__content">
+        Completaste el juego, konichigua!
+    </div>
+    <div class="completionModal__footer">
+        <button class="completionModal__button--primary">Jugar Otra vez</button>
+        <button class="completionModal__button--secondary">Cambiar dificultad</button>
+    </div>
+
 </div>
