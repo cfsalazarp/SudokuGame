@@ -3,7 +3,7 @@ $active-color: #f399c1;
 $highlight-row-color: #fcd5e6;
 $highlight-col-color: #fcd5e6;
 $highlight-same-color: #fcd5e6;
-$text-color: #ff569f;
+$text-color: #677cb1;
 $text-color--readonly: #264697;
 
 :host {
@@ -39,6 +39,7 @@ $text-color--readonly: #264697;
 
   &.active {
     background: $active-color;
+    // color: var(--color-bg);
   }
 
   &:after {
@@ -124,5 +125,11 @@ $text-color--readonly: #264697;
   .note-6,
   .note-9 {
     justify-content: flex-end;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.3s ease-in-out;
   }
 }

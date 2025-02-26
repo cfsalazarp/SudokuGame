@@ -1,0 +1,61 @@
+$border-color: #ea5725;
+$active-color: #f399c1;
+$highlight-row-color: #fcd5e6;
+$highlight-col-color: #fcd5e6;
+$highlight-same-color: #fcd5e6;
+$text-color: #ff569f;
+$text-color--readonly: #264697;
+$border-radius: 6px;
+
+.options {
+  margin: 8px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 30px;
+
+  button {
+    margin: 8px;
+    font-family: "Shuriken", sans-serif;
+    font-size: 16px;
+    color: #ea5725;
+    padding: 8px;
+    border: 3px solid #ea5725;
+    border-radius: $border-radius;
+    background-color: var(--color-bg);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+
+    &.active {
+      background-color: #ea5725;
+      color: var(--color-bg);
+    }
+
+    &:hover {
+      background-color: #ea5725;
+      color: var(--color-bg);
+    }
+  }
+}
+
+.numbers {
+  display: flex;
+  gap: 3px;
+
+  button {
+    flex: 1;
+    font-family: "Shuriken", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #264697;
+    background: var(--color-bg);
+    padding: 2px;
+    border: 2px solid #264697;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+
+    &:hover {
+      color: #ff569f;
+    }
+  }
+}

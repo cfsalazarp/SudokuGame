@@ -16,13 +16,13 @@
 
 :root {
     /* Light Theme */
-    --color-bg: #F7EFD9;
+    --color-bg: #F5E1C8;
     --color-board: #FFFFFF;
     --color-cell: #2d9ae2;
     --color-fixed-cell: #F7F7F7;
     --color-selected: #FFEB3B;
     --color-correct: #2E7D32;
-    --color-error: #D32F2F;
+    --color-error: #E63946;
     --color-text: #264697;
     --color-primary: #1976D2;
     --color-secondary: #757575;
@@ -50,6 +50,14 @@
   body {
     font-family: 'Shuriken', sans-serif;
     background-color: var(--color-bg);
+    background-image: url('./assets/CherryBlossom.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom -200px right;
     height: 100%;
     margin: 0px;
+
+    @media screen and (max-width: 700px) {
+      background-position: bottom -100px right;
+    }
   }
