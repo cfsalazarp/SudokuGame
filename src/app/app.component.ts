@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, effect, signal } from "@angular/core";
+import { Component, effect, signal, ViewChild } from "@angular/core";
 import { SudokuBoardComponent } from "./components/sudoku-board/sudoku-board.component";
 import { SudokuApiService } from "./core/services/sudoku-api.service";
 import { Sudoku } from "./core/models/sudoku.model";
@@ -13,8 +13,10 @@ export type Difficulty = "easy" | "medium" | "hard";
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
+  @ViewChild(CompletionModalComponent) completionModal!: CompletionModalComponent;
+  
   title = "Sudoku 数独";
-  difficulty: Difficulty = "hard";
+  difficulty= signal<Difficulty>("easy");
   sudoku!: Sudoku;
   finishedGame = signal(false);
 
@@ -25,13 +27,27 @@ export class AppComponent {
     effect(() => {
       console.log("Se acabó el juego", this.finishedGame());
     });
+
+    effect(() => {
+      const action = this.completionModal?.selectedAction();
+      if (action === 1) {
+        console.log("Seleccionando nuevo nivel...");
+        this.finishedGame.set(false);
+        this.difficulty()
+      } else if (action === 2){
+        console.log("Reiniciando juego...");
+        this.completionModal.isVisible.set(false);
+        this.finishedGame.set(false);
+        this.generateSudoku();
+      }
+    })
   }
 
   ngOnInit() {
-    this.generateSudoku(this.difficulty);
+    this.generateSudoku();
   }
 
-  generateSudoku(difficulty: Difficulty) {
+  generateSudoku(difficulty: Difficulty = this.difficulty()) {
     this.sudokuApiService.getSudokuData().subscribe({
       next: (response) => {
         this.sudoku = response.data.map((row) =>

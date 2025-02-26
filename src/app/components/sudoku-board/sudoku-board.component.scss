@@ -29,11 +29,6 @@ $border-radius: 6px;
       background-color: #ea5725;
       color: var(--color-bg);
     }
-
-    @media (hover: hover) {
-      background-color: #ea5725;
-      color: var(--color-bg);
-    }
   }
 }
 
@@ -53,9 +48,16 @@ $border-radius: 6px;
     border-radius: $border-radius;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+}
 
-    @media (hover: hover) {
-      color: #ff569f;
-    }
+@media (hover: hover) {
+  .options button:hover {
+    background-color: #ea5725;
+    color: var(--color-bg);
+  }
+
+  .numbers button:hover {
+    color: #ff569f;
   }
 }
