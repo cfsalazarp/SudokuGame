@@ -20,12 +20,21 @@
   }
 }
 
-.layout-container{
+$border-color: #ea5725;
+$active-color: #f399c1;
+$highlight-row-color: #fcd5e6;
+$highlight-col-color: #fcd5e6;
+$highlight-same-color: #fcd5e6;
+$text-color: #ff569f;
+$text-color--readonly: #264697;
+$border-radius: 6px;
+
+.layout-container {
   max-width: 400px;
   margin: 0 auto;
   padding: 16px;
 
-  .layout-container__title{
+  .layout-container__title {
     flex: 1;
     text-align: center;
     justify-self: center;
@@ -34,7 +43,6 @@
   }
 
   .difficulty__title {
-    
     padding-top: 5px;
     // animation: fadeInDown 0.6s ease-in-out;
   }
@@ -53,7 +61,7 @@
   color: var(--color-text);
   animation: fadeInDown 0.6s ease-in-out;
 
-  .difficulty__button{
+  .difficulty__button {
     background: none;
     border: none;
     font-size: 16px;
@@ -61,8 +69,53 @@
     cursor: pointer;
     padding-top: 4px;
 
-    &:hover{
+    &:hover {
       color: #ea5725;
     }
+  }
+}
+
+app-modal {
+  /* Ícono japonés */
+  .icon {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  /* Estilos de los títulos */
+  h2 {
+    font-size: 24px;
+    color: #ea5725;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 16px;
+    color: #264697;
+    margin-bottom: 20px;
+  }
+
+  /* Botones */
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  button {
+    margin: 8px;
+    font-family: "Shuriken", sans-serif;
+    font-size: 14px;
+    color: #ea5725;
+    padding: 8px;
+    border: 3px solid #ea5725;
+    border-radius: $border-radius;
+    background-color: var(--color-bg);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
   }
 }

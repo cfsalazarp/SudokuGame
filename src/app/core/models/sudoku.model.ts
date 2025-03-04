@@ -18,3 +18,5 @@ export interface NumberButton {
     number: number;
     disabled?: boolean;
   }
+
+export type Difficulty = "easy" | "medium" | "hard";

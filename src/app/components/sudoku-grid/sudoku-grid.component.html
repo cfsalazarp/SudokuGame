@@ -15,7 +15,7 @@
       (click)="onFieldClick(field)" 
       >
       <div class="value">{{ field.value }}</div>
-      <ng-container *ngIf="!field.value && field.notes && field.notes.length > 0">
+      <ng-container *ngIf="!field.value && field.notes?.length">
         <div class="note note-{{ note }}" *ngFor="let note of field.notes">
           <div>{{ note }}</div>
         </div>

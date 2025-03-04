@@ -1,63 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 @font-face {
-  font-family: 'Ungai';
-  src: url('../src/assets/Ungai.ttf') format('truetype');
+  font-family: "Ungai";
+  src: url("../src/assets/Ungai.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Shuriken';
-  src: url('../src/assets/The\ Last\ Shuriken.ttf') format('truetype');
+  font-family: "Shuriken";
+  src: url("../src/assets/The\ Last\ Shuriken.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+
+$border-color: #ea5725;
+$active-color: #f399c1;
+$highlight-row-color: #fcd5e6;
+$highlight-col-color: #fcd5e6;
+$highlight-same-color: #fcd5e6;
+$text-color: #ff569f;
+$text-color--readonly: #264697;
+$border-radius: 6px;
 
 :root {
-    /* Light Theme */
-    --color-bg: #F5E1C8;
-    --color-board: #FFFFFF;
-    --color-cell: #2d9ae2;
-    --color-fixed-cell: #F7F7F7;
-    --color-selected: #FFEB3B;
-    --color-correct: #2E7D32;
-    --color-error: #E63946;
-    --color-text: #264697;
-    --color-primary: #1976D2;
-    --color-secondary: #757575;
-  
-    /* Dark Theme */
-    --dark-bg: #121212;
-    --dark-board: #1E1E1E;
-    --dark-cell: #2D2D2D;
-    --dark-fixed-cell: #3A506B;
-    --dark-selected: #FFD700;
-    --dark-correct: #4CAF50;
-    --dark-error: #FF5252;
-    --dark-text: #EEE;
-    --dark-primary: #BB86FC;
-    --dark-secondary: #999;
-  
-    /* General */
-    --font-secondary: 'Ungai', sans-serif;
-    --font-size: 16px;
-    --border-radius: 8px;
-    --spacing: 10px;
-    --transition: all 0.3s ease-in-out;
-  }
-  
-  body {
-    font-family: 'Shuriken', sans-serif;
-    background-color: var(--color-bg);
-    background-image: url('./assets/CherryBlossom.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom -200px right;
-    height: 100%;
-    margin: 0px;
+  /* Light Theme */
+  --color-bg: #f5e1c8;
+  --color-board: #ffffff;
+  --color-cell: #2d9ae2;
+  --color-fixed-cell: #f7f7f7;
+  --color-selected: #ffeb3b;
+  --color-correct: #2e7d32;
+  --color-error: #e63946;
+  --color-text: #264697;
+  --color-primary: #1976d2;
+  --color-secondary: #757575;
 
-    @media screen and (max-width: 700px) {
-      background-position: bottom -100px right;
-    }
+  /* Dark Theme */
+  --dark-bg: #121212;
+  --dark-board: #1e1e1e;
+  --dark-cell: #2d2d2d;
+  --dark-fixed-cell: #3a506b;
+  --dark-selected: #ffd700;
+  --dark-correct: #4caf50;
+  --dark-error: #ff5252;
+  --dark-text: #eee;
+  --dark-primary: #bb86fc;
+  --dark-secondary: #999;
+
+  /* General */
+  --font-secondary: "Ungai", sans-serif;
+  --font-size: 16px;
+  --border-radius: 8px;
+  --spacing: 10px;
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: "Shuriken", sans-serif;
+  background-color: var(--color-bg);
+  background-image: url("./assets/CherryBlossom.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom -200px right;
+  height: 100%;
+  margin: 0px;
+
+  @media screen and (max-width: 700px) {
+    background-position: bottom -100px right;
   }
+}

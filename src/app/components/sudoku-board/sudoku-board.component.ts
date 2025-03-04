@@ -1,11 +1,8 @@
 import {
   Component,
-  EventEmitter,
   HostListener,
-  OnChanges,
   Input,
   signal,
-  SimpleChanges,
   input,
   effect,
   WritableSignal
@@ -24,7 +21,7 @@ const between = (newValue: number, min: number, max: number) => {
   templateUrl: "./sudoku-board.component.html",
   styleUrl: "./sudoku-board.component.scss",
 })
-export class SudokuBoardComponent implements OnChanges {
+export class SudokuBoardComponent {
   readonly sudoku = input<Sudoku>([]);
   @Input() finishedGame!: WritableSignal<boolean>;
 
@@ -48,10 +45,6 @@ export class SudokuBoardComponent implements OnChanges {
     {number: 8},
     {number: 9}
   ];
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log("changes: ", changes["sudoku"]);
-  }
 
   @HostListener("window:keydown.backspace")
   onBackspace() {
@@ -93,17 +86,23 @@ export class SudokuBoardComponent implements OnChanges {
   }
 
   insertNumber(number: number) {
+    console.log("this.activeField", this.activeField().notes);
+    
     const field = this.activeField();
     console.log("insertNumber:", number);
+    console.log("field", field);
+    
     console.log(this.notesMode());
     
     
     if (this.notesMode() && !field.value) {
       console.log("this.notesMode() && !field.value");
+      console.log("field", field.notes);
       if (!field.notes) {
         console.log("!field.notes");
         field.notes = [];
-      } else if (!field.notes?.find(data => data === number)) {
+      } 
+      if (!field.notes?.find(data => data === number)) {
         console.log("!field.notes?.find(data => data === number)");
         field.notes?.push(number);
       }else {
@@ -163,8 +162,7 @@ export class SudokuBoardComponent implements OnChanges {
   }
 
   finished(): boolean{
-    //return this.sudoku().every(row => row.every(col => col.value == col.answer));
     console.log("finishedFunc");
-    return true;
+    return this.sudoku().every(row => row.every(col => col.value == col.answer));
   }
 }

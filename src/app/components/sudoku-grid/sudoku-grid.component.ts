@@ -13,7 +13,7 @@ export class SudokuGridComponent {
   @Input() activeField!: WritableSignal<SudokuField>;
 
   onFieldClick(field: SudokuField): void {
-    console.log("field selected in Child: ",field);
+    console.log("field", field);
     this.activeField.set(this.activeField() !== field ? field : {answer: -1});
   }
 

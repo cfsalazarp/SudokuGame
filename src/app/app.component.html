@@ -1,14 +1,49 @@
 <main class="layout-container">
   <h1 class="layout-container__title">Sudoku 数独</h1>
   <div class="difficulty">
-    <div class="difficulty__title">
-      {{difficulty()}} Mode
-    </div>
-    <button class="difficulty__button" (click)="this.completionModal.isVisible.set(true)">
+    <div class="difficulty__title">{{ difficulty() }} Mode</div>
+    <button class="difficulty__button" (click)="this.openDifficultyModal()">
       <i class="fa-solid fa-arrows-rotate"></i>
     </button>
   </div>
-  <app-completion-modal></app-completion-modal>
-  <app-sudoku-board *ngIf="sudoku" [sudoku]="sudoku" [finishedGame]="finishedGame"></app-sudoku-board>
+  <app-modal
+    [isOpen]="showDifficultyModal"
+    (closeModal)="showDifficultyModal.set(false)"
+  >
+    <div class="completionModal__title">
+      <h3>Seleccionar Dificultad:</h3>
+    </div>
+    <div class="completionModal__footer">
+      <button
+        *ngFor="let level of difficulties"
+        class="completionModal__button--primary"
+        (click)="setDifficulty(level)"
+      >
+        {{ level }}
+      </button>
+    </div>
+  </app-modal>
+  <app-modal [isOpen]="finishedGame" (closeModal)="finishedGame.set(false)">
+    <div class="completionModal__title">
+      <h2>おめでとう 🎉</h2>
+      <h3>(Felicitaciones para los de poco japones!)</h3>
+    </div>
+    <div class="completionModal__footer">
+      <button class="completionModal__button--primary" (click)="restartGame()">
+        Jugar Otra vez
+      </button>
+      <button
+        class="completionModal__button--secondary"
+        (click)="openDifficultyModal()"
+      >
+        Cambiar dificultad
+      </button>
+    </div>
+  </app-modal>
+  <app-sudoku-board
+    *ngIf="sudoku"
+    [sudoku]="sudoku"
+    [finishedGame]="finishedGame"
+  ></app-sudoku-board>
   <!-- Timer -->
 </main>
